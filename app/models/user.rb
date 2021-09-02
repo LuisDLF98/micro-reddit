@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    has_many :posts, dependent: :destroy
+
     validates :name, 
         presence: true, 
         length: { in: 2..20, too_long: "Username should be at most 20 characters long.", too_short: "Username should be at least 2 characters long." },
